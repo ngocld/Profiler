@@ -1,0 +1,32 @@
+2016-12-13 10:05:49,694 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess CheckConnectSQL 570  - Open connection to SQL Server  
+2016-12-13 10:05:50,091 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess CheckConnectSQL 967  - Open connection to SQL Server  
+2016-12-13 10:05:50,094 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess GetDataTableSql 970  - Execute sql: select	a.id, case a.status when '1' then 'Running' when '0' then 'Stop' end as status, a.max_size, a.max_files, convert(varchar, a.start_time, 120) as start, convert(varchar, a.last_event_time, 120) as last, a.event_count as [count],a.path as [path_server] from sys.traces a where a.max_files is not null and is_default = 0;  
+2016-12-13 10:05:50,172 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess CheckUserIsSysAdmin 1048  - Execute sql: IF IS_SRVROLEMEMBER ('sysadmin') = 1 select 'IsSysAdmin' as IsSysAdmin  
+2016-12-13 10:05:50,194 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess GetDataTableSql 1070  - Execute sql: SELECT DISTINCT REVERSE(SUBSTRING(REVERSE(path), CHARINDEX('\', REVERSE(path)), 256)) as [DirTrace] FROM sys.traces WHERE max_files is not null and is_default = 0  
+2016-12-13 10:05:50,210 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess GetDataTableSql 1085  - Execute sql: EXEC master.sys.xp_dirtree 'E:\Backup2014\',1,1  
+2016-12-13 10:05:50,310 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess CheckUserIsSysAdmin 1186  - Execute sql: IF IS_SRVROLEMEMBER ('sysadmin') = 1 select 'IsSysAdmin' as IsSysAdmin  
+2016-12-13 10:06:19,582 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess CheckConnectSQL 30457  - Open connection to SQL Server  
+2016-12-13 10:06:19,734 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess CheckConnectSQL 30610  - Open connection to SQL Server  
+2016-12-13 10:06:19,734 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess GetDataTableSql 30610  - Execute sql: select	a.id, case a.status when '1' then 'Running' when '0' then 'Stop' end as status, a.max_size, a.max_files, convert(varchar, a.start_time, 120) as start, convert(varchar, a.last_event_time, 120) as last, a.event_count as [count],a.path as [path_server] from sys.traces a where a.max_files is not null and is_default = 0;  
+2016-12-13 10:06:19,750 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess CheckUserIsSysAdmin 30626  - Execute sql: IF IS_SRVROLEMEMBER ('sysadmin') = 1 select 'IsSysAdmin' as IsSysAdmin  
+2016-12-13 10:06:19,803 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess GetDataTableSql 30679  - Execute sql: SELECT DISTINCT REVERSE(SUBSTRING(REVERSE(path), CHARINDEX('\', REVERSE(path)), 256)) as [DirTrace] FROM sys.traces WHERE max_files is not null and is_default = 0  
+2016-12-13 10:06:19,834 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess GetDataTableSql 30710  - Execute sql: EXEC master.sys.xp_dirtree 'E:\Backup2014\',1,1  
+2016-12-13 10:06:41,532 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess CheckConnectSQL 52408  - Open connection to SQL Server  
+2016-12-13 10:06:41,632 ERROR FISSOFT\NgocLD Profiler.Helpers.clsDataAccess CheckConnectSQL 52508  - Exception: Login failed for user 'FISSOFT\NgocLD'.  
+2016-12-13 10:11:30,511 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess CheckConnectSQL 341386  - Open connection to SQL Server  
+2016-12-13 10:11:30,611 ERROR FISSOFT\NgocLD Profiler.Helpers.clsDataAccess CheckConnectSQL 341487  - Exception: Login failed for user 'FISSOFT\NgocLD'.  
+2016-12-27 11:27:19,767 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess CheckConnectSQL 617  - Open connection to SQL Server  
+2016-12-27 11:27:19,952 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess CheckConnectSQL 801  - Open connection to SQL Server  
+2016-12-27 11:27:19,952 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess GetDataTableSql 801  - Execute sql: select	a.id, case a.status when '1' then 'Running' when '0' then 'Stop' end as status, a.max_size, a.max_files, convert(varchar, a.start_time, 120) as start, convert(varchar, a.last_event_time, 120) as last, a.event_count as [count],a.path as [path_server] from sys.traces a where a.max_files is not null and is_default = 0;  
+2016-12-27 11:27:20,036 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess CheckUserIsSysAdmin 885  - Execute sql: IF IS_SRVROLEMEMBER ('sysadmin') = 1 select 'IsSysAdmin' as IsSysAdmin  
+2016-12-27 11:27:20,036 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess GetDataTableSql 885  - Execute sql: SELECT DISTINCT REVERSE(SUBSTRING(REVERSE(path), CHARINDEX('\', REVERSE(path)), 256)) as [DirTrace] FROM sys.traces WHERE max_files is not null and is_default = 0  
+2016-12-27 11:27:20,052 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess GetDataTableSql 901  - Execute sql: EXEC master.sys.xp_dirtree 'E:\Backup2014\',1,1  
+2016-12-27 11:27:20,120 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess CheckUserIsSysAdmin 970  - Execute sql: IF IS_SRVROLEMEMBER ('sysadmin') = 1 select 'IsSysAdmin' as IsSysAdmin  
+2016-12-27 11:27:24,323 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess CheckConnectSQL 5173  - Open connection to SQL Server  
+2016-12-27 11:27:25,341 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess CheckConnectSQL 6190  - Open connection to SQL Server  
+2016-12-27 11:27:25,925 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess CheckConnectSQL 6774  - Open connection to SQL Server  
+2016-12-27 11:27:29,774 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess CheckConnectSQL 10624  - Open connection to SQL Server  
+2016-12-27 11:27:29,774 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess GetDataTableSql 10624  - Execute sql: select	a.id, case a.status when '1' then 'Running' when '0' then 'Stop' end as status, a.max_size, a.max_files, convert(varchar, a.start_time, 120) as start, convert(varchar, a.last_event_time, 120) as last, a.event_count as [count],a.path as [path_server] from sys.traces a where a.max_files is not null and is_default = 0;  
+2016-12-27 11:27:29,790 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess CheckUserIsSysAdmin 10639  - Execute sql: IF IS_SRVROLEMEMBER ('sysadmin') = 1 select 'IsSysAdmin' as IsSysAdmin  
+2016-12-27 11:27:29,790 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess GetDataTableSql 10639  - Execute sql: SELECT DISTINCT REVERSE(SUBSTRING(REVERSE(path), CHARINDEX('\', REVERSE(path)), 256)) as [DirTrace] FROM sys.traces WHERE max_files is not null and is_default = 0  
+2016-12-27 11:27:29,806 INFO FISSOFT\NgocLD Profiler.Helpers.clsDataAccess GetDataTableSql 10655  - Execute sql: EXEC master.sys.xp_dirtree 'E:\Backup2014\',1,1  
