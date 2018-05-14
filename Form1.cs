@@ -23,7 +23,8 @@ namespace Profiler
         {
             get
             {
-                var result = (txtConnection.Text.Trim() + ";Connect Timeout=6; Application Name=SQL Trace Log iHRP");
+                //var result = (txtConnection.Text.Trim() + ";Connect Timeout=6; Application Name=SQL Trace Log iHRP");
+                var result = (txtConnection.Text.Trim() + ";Connect Timeout=5; Application Name=SQLTraceLog");
                 return result.Replace(";;", ";");
             }
         }
@@ -306,8 +307,8 @@ namespace Profiler
                 var sql = new StringBuilder();
                 sql.Append("declare @rc INT ");
                 sql.Append("declare @TraceID INT ");
-                sql.Append("declare @maxfilesize BIGINT = 300 ");
-                sql.Append("declare @countfile INT = 30 ");
+                sql.Append("declare @maxfilesize BIGINT = 1000 ");
+                sql.Append("declare @countfile INT = 100 ");
 
                 sql.Append("declare @PathfileLog NVARCHAR(256) = N'" + pathfile + "' ");
                 sql.Append("exec @rc = sp_trace_create @TraceID output, @options = 2, @tracefile = @PathfileLog, @maxfilesize = @maxfilesize, @stoptime = NULL, @filecount = @countfile ");
@@ -332,94 +333,7 @@ namespace Profiler
                 sql.Append("exec sp_trace_setevent @TraceID, 12, 48, @on ");
                 sql.Append("exec sp_trace_setevent @TraceID, 12, 60, @on ");
 
-
-                // Get Event: 81 SERVER: MEMORY CHANGE
-                sql.Append("exec sp_trace_setevent @TraceID, 81, 12, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 81, 14, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 81, 21, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 81, 25, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 81, 26, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 81, 51, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 81, 60, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 81, 64, @on ");
-
-                // Get Event: DATABASE: AUTO GROW
-                sql.Append("exec sp_trace_setevent @TraceID, 92, 3, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 92, 11, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 92, 8, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 92, 10, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 92, 12, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 92, 13, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 92, 14, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 92, 15, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 92, 25, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 92, 26, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 92, 35, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 92, 51, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 92, 60, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 92, 64, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 94, 3, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 94, 11, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 94, 8, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 94, 10, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 94, 12, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 94, 13, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 94, 14, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 94, 15, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 94, 25, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 94, 26, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 94, 35, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 94, 51, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 94, 60, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 94, 64, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 93, 3, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 93, 11, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 93, 8, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 93, 10, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 93, 12, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 93, 13, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 93, 14, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 93, 15, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 93, 25, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 93, 26, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 93, 35, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 93, 51, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 93, 60, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 93, 64, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 95, 3, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 95, 11, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 95, 8, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 95, 10, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 95, 12, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 95, 13, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 95, 14, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 95, 15, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 95, 25, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 95, 26, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 95, 35, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 95, 51, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 95, 60, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 95, 64, @on ");
-
-                // Get Event: LOCK & LOCK CHAIN
-                sql.Append("exec sp_trace_setevent @TraceID, 25, 1, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 25, 9, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 25, 10, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 25, 3, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 25, 8, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 25, 11, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 25, 12, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 25, 13, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 25, 14, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 25, 15, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 25, 26, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 25, 32, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 25, 35, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 25, 57, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 25, 60, @on ");
-                sql.Append("exec sp_trace_setevent @TraceID, 25, 64, @on ");
-
-                // Get Event: store procedure
+                // Get Event: 10 store procedure
                 sql.Append("exec sp_trace_setevent @TraceID, 10, 1, @on ");
                 sql.Append("exec sp_trace_setevent @TraceID, 10, 9, @on ");
                 sql.Append("exec sp_trace_setevent @TraceID, 10, 2, @on ");
@@ -441,10 +355,17 @@ namespace Profiler
                 sql.Append("exec sp_trace_setevent @TraceID, 10, 48, @on ");
 
                 // SET FILTER
-                sql.Append("exec sp_trace_setfilter @TraceID, 10, 0, 7, N'Microsoft SQL Server Management Studio - Transact-SQL IntelliSense' "); //ApplicationName
-                sql.Append("exec sp_trace_setfilter @TraceID, 10, 0, 7, N'SQL Trace Log iHRP' ");//ApplicationName
-                sql.Append("exec sp_trace_setfilter @TraceID, 1, 0, 7, N'exec sp_reset_connection' ");//TextData
-                sql.Append("exec sp_trace_setstatus @TraceID, 1 ");
+                sql.Append(" exec sp_trace_setfilter @TraceID, 10, 0, 7, N'SQLTraceLog'");                                          //ApplicationName
+                sql.Append(" exec sp_trace_setfilter @TraceID, 10, 0, 7, N'Microsoft SQL Server Management Studio'");               //ApplicationName
+                sql.Append(" exec sp_trace_setfilter @TraceID, 10, 0, 7, N'Microsoft SQL Server Management Studio - Transact%'");   //ApplicationName
+                sql.Append(" exec sp_trace_setfilter @TraceID, 1, 0, 7, N'use%'");                      //TextData
+                sql.Append(" exec sp_trace_setfilter @TraceID, 1, 0, 7, N'%SELECT @@SPID%'");           //TextData
+                sql.Append(" exec sp_trace_setfilter @TraceID, 1, 0, 7, N'exec sp_reset_connection'");  //TextData
+                sql.Append(" exec sp_trace_setfilter @TraceID, 18, 0, 1, 0"); // CPU > 0
+
+                // START
+                sql.Append(" exec sp_trace_setstatus @TraceID, 1");
+                
 
                 var result = clsDataAccess.ExecuteSqlNoTran(sql.ToString(), connectionstringSQL);
                 if (!result)
@@ -823,7 +744,7 @@ namespace Profiler
             }
         }
 
-            //Format report with gridview & excel file
+        //Format report with gridview & excel file
         private Worksheet FormatReportExcel(Worksheet ws)
         {
             // Format file
